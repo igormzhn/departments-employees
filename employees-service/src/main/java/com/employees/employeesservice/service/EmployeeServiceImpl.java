@@ -59,10 +59,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     public boolean delete(int id) {
         if (employeeRepository.existsById(id)) {
             employeeRepository.deleteById(id);
-
             return true;
         }
-
         return false;
     }
 
