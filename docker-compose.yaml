@@ -1,0 +1,67 @@
+version: '3'
+services:
+  employees-service:
+    build: /home/goshan/_work/employees-service/            
+    container_name: employees-service
+    networks:
+      - micro-service-network
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURSE_URL: 'jdbc:postgresql://db-employees:2345/employees'
+      SRPING_DATASOURSE_USERNAME: postgres
+      SPRING_DATASOURSE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL-AUTO: update
+    depends_on:
+      - db-employees            
+  db-employees:
+    image: postgres:alpine
+    container_name: db-employees
+    restart: always
+    networks:
+      - micro-service-network
+    ports:
+      - 2345:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: employees
+      PGDATA: /home/goshan/data/employees/
+    volumes:
+      - pgdata:/home/goshan/data/employees/
+  departments:
+    build: /home/goshan/_work/departments/            
+    container_name: departments-service
+    networks:
+      - micro-service-network
+    ports:
+      - 8081:8081
+    environment:
+      SPRING_DATASOURSE_URL: 'jdbc:postgresql://db-departments:5432/departments'
+      SRPING_DATASOURSE_USERNAME: postgres
+      SPRING_DATASOURSE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL-AUTO: update
+    depends_on:
+      - db-departments
+  db-departments:
+    image: postgres:alpine
+    container_name: db-departments    
+    restart: always
+    networks:
+      - micro-service-network 
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: departments
+      PGDATA: /home/goshan/data/departments/
+    volumes:
+      - pgdata1:/home/goshan/data/departments/
+volumes:
+  pgdata:
+  pgdata1:
+networks:
+  micro-service-network:
+    external: true
+    
