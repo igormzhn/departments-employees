@@ -39,7 +39,7 @@ public class IntegrationEmployeeServiceImpl implements IntegrationEmployeeServic
 
     @Override
     public void moveEmployee(MoveEmployeeDto moveEmployee){
-        ResponseEntity<MoveEmployeeDto> res = employeeRestTemplate.postForEntity("http://192.168.1.6:8080/employees/move", moveEmployee, MoveEmployeeDto.class);
+        ResponseEntity<MoveEmployeeDto> res = employeeRestTemplate.postForEntity("http://localhost:8080/employees/move", moveEmployee, MoveEmployeeDto.class);
         if(!res.getStatusCode().equals(HttpStatus.OK)) {
             throw new IllegalArgumentException();       // сделать нормальное исключение
         }
