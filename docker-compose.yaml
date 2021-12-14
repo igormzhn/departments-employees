@@ -37,7 +37,7 @@ services:
     ports:
       - 8081:8081
     environment:
-      SPRING_DATASOURSE_URL: 'jdbc:postgresql://db-departments:5432/departments'
+      SPRING_DATASOURSE_URL: 'jdbc:postgresql://db-departments:5432/departments1'
       SRPING_DATASOURSE_USERNAME: postgres
       SPRING_DATASOURSE_PASSWORD: postgres
       SPRING_JPA_HIBERNATE_DDL-AUTO: update

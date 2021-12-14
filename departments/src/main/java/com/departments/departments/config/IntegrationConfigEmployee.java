@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 public class IntegrationConfigEmployee {
 
     @Bean
-    //@Qualifier("employeeRestTemplate") // не нужна потому что бин создаться по имени метода
     public RestTemplate employeeRestTemplate() {
             return new  RestTemplate();
     }

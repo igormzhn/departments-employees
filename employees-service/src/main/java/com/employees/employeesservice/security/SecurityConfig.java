@@ -19,10 +19,6 @@ public class  SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-   /* @Bean
-    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder){
-        return new UserDetailsServiceImpl(passwordEncoder);
-    }*/
     @PostConstruct
     public void init(){
         System.out.println("Metod INIT");

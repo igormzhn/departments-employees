@@ -27,15 +27,11 @@ public class IntegrationDepartmentsServiceImpl implements IntegrationDepartmentS
 
     @Override
     public Boolean ifDepartmentsExists(Integer departmentsId) {
-        ResponseEntity<Departments> res = departmentRestTemplate.exchange("http://localhost:8081/v1/departments/"+ departmentsId, HttpMethod.GET,
-                new HttpEntity<Void>(createHeaders("user", "user")), Departments.class);
-        if(res.getStatusCode().equals(HttpStatus.OK)){
-            return Boolean.TRUE;
-        }
-        return Boolean.FALSE;
+           ResponseEntity<Departments> res = departmentRestTemplate.exchange("http://departments-service:8081/v1/departments/" + departmentsId, HttpMethod.GET,
+                    new HttpEntity<Void>(createHeaders("user", "user")), Departments.class);
+            if (res.getStatusCode().equals(HttpStatus.OK)) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
     }
-
-
-
-
 }

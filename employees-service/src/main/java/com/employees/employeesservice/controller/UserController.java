@@ -15,7 +15,6 @@ public class UserController {
     @Autowired
     private  UserDetailsServiceImpl userDetailsService;
 
-
     @PostMapping(value = "/registration")
     public ResponseEntity<?> register(@RequestBody MyUser myUser){
         userDetailsService.register(myUser);

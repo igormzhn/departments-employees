@@ -21,8 +21,6 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-
-
     @PostMapping(value = "/employees")
     public ResponseEntity<?> create (@RequestBody Employee employee){
         employeeService.create(employee);
@@ -64,7 +62,6 @@ public class EmployeeController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-
     }
 
     @PostMapping(value = "/employees/move")//обработка исключений
@@ -72,9 +69,4 @@ public class EmployeeController {
            employeeService.move(moveDepartmentDto.getFromDepartmentId(), moveDepartmentDto.getToDepartmentId());
            return ResponseEntity.ok().build();
     }
-
-
-
-
-
 }

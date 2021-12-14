@@ -18,15 +18,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService{
 
-    //private static final Map<Integer, Departments> DEPARTMENT_REPOSITORY_MAP = new HashMap<>();
-    //private static final AtomicInteger DEPARTMENT_ID_HOLDER = new AtomicInteger();
-
     //@Autowired
     private final DepartmentRepository departmentRepository;
-    //private DepartmentRepository departmentRepository1;
+
 
     //@Autowired
-    private final IntegrationEmployeeService intagrationEmployeeService;
+    private final IntegrationEmployeeService integrationEmployeeService;
 
     @Override
     public int create(Departments departments){
@@ -42,26 +39,18 @@ public class DepartmentServiceImpl implements DepartmentService{
       @Override
       public List<Departments> readAll(){
         return departmentRepository.findAll();
-      //return new ArrayList<>(DEPARTMENT_REPOSITORY_MAP.values());
-    }
+       }
 
       @Override
       public Departments read(int id){
         return departmentRepository.getById(id);
-        //return DEPARTMENT_REPOSITORY_MAP.get(id);
-    }
-
-      /*@Override
-      public List<Departments> readById(){
-        return departmentRepository.getById();
-    }*/
+            }
 
     @Override
     public boolean update(Departments departments, int id){
         if (departmentRepository.existsById(id)){
             departments.setId(id);
             departmentRepository.save(departments);
-            //DEPARTMENT_REPOSITORY_MAP.put(id, departments);
             return true;
         }
         return false;
@@ -74,7 +63,7 @@ public class DepartmentServiceImpl implements DepartmentService{
             throw new DepartmentNotFoundException();
         }
         departmentRepository.deleteById(departmentId);
-        intagrationEmployeeService.moveEmployee(moveEmployeeDto);
+        integrationEmployeeService.moveEmployee(moveEmployeeDto);
         return true;
     }
 }

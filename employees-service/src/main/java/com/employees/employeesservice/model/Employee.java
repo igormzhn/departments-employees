@@ -1,9 +1,7 @@
 package com.employees.employeesservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,7 +10,8 @@ import javax.persistence.*;
 @Table(name = "employees")
 @AllArgsConstructor
 @NoArgsConstructor
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@EqualsAndHashCode
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_employee_seq_generator")

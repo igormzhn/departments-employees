@@ -24,7 +24,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             return  newEmp.getId();
         }
         throw new IllegalArgumentException();
-
     }
 
     @Override
@@ -32,15 +31,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findAll();
     }
 
-    /*@Override
-    public List<Employee> getEmployeeByDepartmentId(int departmentId){
-        return employeeRepository.getById(departmentId);
-    }*/
-
     @Override
     public Employee read(int id) {
         return employeeRepository.getById(id);
-        //return EMPLOYEE_MAP.get(id);
+
     }
 
     @Override
@@ -50,7 +44,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             employeeRepository.save(employee);
             return true;
         }
-
         return false;
     }
 
@@ -71,10 +64,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         lst.stream().forEach(employee -> {
             employee.setDepartmentId(to);
         });
-        //TODO: проверить правильность сохранения departmentId для каждого employee при закомментировать следующей строки
         employeeRepository.saveAllAndFlush(lst);
 
     }
-
 
 }
