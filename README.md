@@ -11,7 +11,9 @@ ___Сollect services with maven___
 
 /departments $ mvn clean
 /departments $ mvn install
+```
 
-Run docker-compose.yaml
+___Run docker-compose.yaml___
+```
 $ docker-compose up
 ```
