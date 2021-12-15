@@ -2,7 +2,7 @@
 ***
 ___Copy repository___
 ```
-git clone https://github.com/igormzhn/departments-employees.git
+$ git clone https://github.com/igormzhn/departments-employees.git
 ```
 ___Сollect services with maven___
 ```
@@ -12,7 +12,15 @@ ___Сollect services with maven___
 /departments $ mvn clean
 /departments $ mvn install
 ```
-
+___Create docker network for microservices and database___
+```
+$ docker network create micro-service-network
+```
+__Сhange the path to the volums block in the docker-compose file so that the data in the databases is saved on disk after the container is deleted__
+```
+pgdata for employees database
+pgdata1 for departments database
+```
 ___Run docker-compose.yaml___
 ```
 $ docker-compose up
