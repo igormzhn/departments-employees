@@ -29,7 +29,7 @@ ___Change the path to the Dockerfile in the docker compose build block___
 
 ___Build the docker-compose___
 ```
-docer-compose build
+$ docer-compose build
 ```
 
 ___Run docker-compose.yaml___
