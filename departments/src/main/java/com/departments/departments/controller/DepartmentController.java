@@ -28,7 +28,7 @@ public class DepartmentController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> create(@RequestBody Departments departments){
         int departmentId = departmentService.create(departments);
-        return ResponseEntity.created(URI.create("http://departments-service:8081/v1/departments/" + departmentId)).build();
+        return ResponseEntity.created(URI.create("http://localhost:8081/v1/departments/" + departmentId)).build();
     }
 
     @GetMapping
