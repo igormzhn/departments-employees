@@ -16,7 +16,7 @@ ___Create docker network for microservices and database___
 $ docker network create micro-service-network
 ```
 
-__Сhange the path to the volumes block in the docker-compose file so that the data in the databases is saved on disk after the container is deleted__
+__Сhange the path in volumes block in the docker-compose file so that the data in the databases is saved on disk after the container is deleted__
 ```
 pgdata for employees database
 pgdata1 for departments database
