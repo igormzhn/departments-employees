@@ -26,9 +26,9 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: employees
-      PGDATA: /home/goshan/data/employees/
+      PGDATA: /var/lib/postgresql/data
     volumes:
-      - pgdata:/home/goshan/data/employees/
+      - pgdata:/var/lib/postgresql/data
   departments:
     build: departments            
     container_name: departments-service
@@ -55,9 +55,9 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: departments
-      PGDATA: /home/goshan/data/departments/
+      PGDATA: /var/lib/postgresql/data
     volumes:
-      - pgdata1:/home/goshan/data/departments/
+      - pgdata1:/var/lib/postgresql/data
 volumes:
   pgdata:
   pgdata1:
