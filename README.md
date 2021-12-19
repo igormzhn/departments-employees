@@ -11,13 +11,7 @@ ___Build services with maven___
 (cd departments && mvn install)
 ```
 
-__Сhange the path in volumes block in the docker-compose file so that the data in the databases is saved on disk after the container is deleted__
-```
-pgdata for employees database
-pgdata1 for departments database
-```
-
-___Run docker-compose.yaml___
+___Run microservices___
 ```
 $ docker-compose up
 ```
