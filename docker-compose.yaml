@@ -1,7 +1,7 @@
 version: '3'
 services:
   employees-service:
-    build: /home/goshan/_work/employees-service/            
+    build: employees-service             
     container_name: employees-service
     networks:
       - micro-service-network
@@ -30,7 +30,7 @@ services:
     volumes:
       - pgdata:/home/goshan/data/employees/
   departments:
-    build: /home/goshan/_work/departments/            
+    build: departments            
     container_name: departments-service
     networks:
       - micro-service-network
@@ -63,5 +63,5 @@ volumes:
   pgdata1:
 networks:
   micro-service-network:
-    external: true
+   # external: true
     

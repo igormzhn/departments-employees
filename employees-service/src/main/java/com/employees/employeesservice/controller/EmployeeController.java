@@ -16,6 +16,7 @@ public class EmployeeController {
     @Autowired
     private final EmployeeService employeeService;
 
+
     @Autowired
     public EmployeeController(EmployeeService employeeService){
         this.employeeService = employeeService;
@@ -64,7 +65,7 @@ public class EmployeeController {
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
-    @PostMapping(value = "/employees/move")//обработка исключений
+    @PostMapping(value = "/employees/move")
     public ResponseEntity<?> move(@RequestBody MoveDepartmentDto moveDepartmentDto){
            employeeService.move(moveDepartmentDto.getFromDepartmentId(), moveDepartmentDto.getToDepartmentId());
            return ResponseEntity.ok().build();
